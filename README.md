@@ -58,16 +58,31 @@ yarn lint
 ```
 
 ## 🧱 Estructura del proyecto
-├── prisma/              # Esquema y migraciones
-├── src/
-│   ├── app/             # Rutas y páginas Next.js
-│   ├── components/      # Componentes UI reutilizables
-│   ├── lib/             # Funciones utilitarias
-│   ├── middleware.ts    # Clerk middleware
-│   └── styles/          # Archivos Tailwind y globals
-├── public/              # Assets públicos
-├── .env                 # Variables de entorno
-├── README.md
+
+- `prisma/` 📦  
+  └─ Esquema y migraciones de la base de datos
+
+- `public/` 🌐  
+  └─ Archivos públicos (imágenes, fuentes, etc.)
+
+- `src/`  
+  ├─ `app/` 🪐  
+  │   └─ Rutas y páginas de Next.js  
+  ├─ `components/` ✖️  
+  │   └─ Componentes UI reutilizables  
+  ├─ `lib/` 🛠  
+  │   └─ Funciones utilitarias  
+  ├─ `styles/` 🎨  
+  │   └─ Estilos globales y configuración de Tailwind  
+  └─ `middleware.ts` 🔒  
+      └─ Middleware de Clerk para autenticación
+
+- `.env` 🔧  
+  └─ Variables de entorno
+
+- `README.md` 📖  
+  └─ Documentación del proyecto
+
 
 ## 🧠 Filosofía del proyecto
 Este proyecto prioriza:
