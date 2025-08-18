@@ -1,0 +1,6 @@
+export * from './header-course/HeaderCourse'
+export * from './course-form/CourseForm'
+export * from './title-block/TitleBlock'
+export * from './course-image/CourseImage'
+export * from './course-price/CoursePrice'
+export * from './chapters-block/ChaptersBlock'
