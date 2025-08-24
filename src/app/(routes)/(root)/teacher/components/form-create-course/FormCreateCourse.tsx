@@ -5,6 +5,7 @@ import axios from "axios"
 import { toast } from "sonner"
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
+import { FolderOpenDot } from "lucide-react"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import {
@@ -72,7 +73,13 @@ export function FormCreateCourse() {
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Crear Curso</Button>
+                <Button 
+                    type="submit"
+                    className=" bg-emerald-500 hover:bg-emerald-400 transition-colors"
+                >
+                    <FolderOpenDot className=" w-5 h-5" />
+                    Crear Curso
+                </Button>
             </form>
         </Form>
     )

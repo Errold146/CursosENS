@@ -39,11 +39,12 @@ export function FormChapterName(props: FormChapterNameProps) {
                 title: values.title,
             });
 
-            const newChapter = response.data; // ✅ contiene id, title, position, etc.
-            onAddChapter(newChapter); // ✅ pasa el objeto completo
+            const newChapter = response.data; 
+            onAddChapter(newChapter); 
 
-            toast.success("Título del capítulo agregado");
+            toast.success("Capítulo agregado");
             setShowInputChapter(false);
+            router.refresh()
 
         } catch {
             toast.error("Ocurrió un error, recargue e intente de nuevo");

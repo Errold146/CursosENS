@@ -1,93 +1,76 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Course {
-    id          String  @id @default(uuid())
-    userId      String
-    title       String  @db.Text
-    slug        String  @unique @db.Text
-    description String? @db.Text
-    imageUrl    String? @db.Text
-    price       String?
-    isPublished Boolean @default(false)
-    level       String? @db.Text
-    category    String? @db.Text
-
-    chapters  Chapter[]
-    purchases Purchase[]
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id          String     @id @default(uuid())
+  userId      String
+  title       String
+  slug        String     @unique
+  description String?
+  imageUrl    String?
+  price       String?
+  isPublished Boolean    @default(false)
+  level       String?
+  category    String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  chapters    Chapter[]
+  purchases   Purchase[]
 }
 
 model Chapter {
-    id          String  @id @default(uuid())
-    title       String
-    description String? @db.Text
-    videoUrl    String? @db.Text
-    position    Int
-    isPublished Boolean @default(false)
-    isFree      Boolean @default(false)
+  id           String         @id @default(uuid())
+  title        String
+  description  String?
+  videoUrl     String?
+  position     Int
+  isPublished  Boolean        @default(false)
+  isFree       Boolean        @default(false)
+  courseId     String
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  course       Course         @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  userProgress UserProgress[]
 
-    courseId String
-    course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
-
-    userProgress UserProgress[]
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    @@index([courseId])
+  @@index([courseId])
 }
 
 model UserProgress {
-    id     String @id @default(uuid())
-    userId String
+  id          String   @id @default(uuid())
+  userId      String
+  chapterId   String?
+  isCompleted Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  chapter     Chapter? @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 
-    chapterId String?
-    chapter   Chapter? @relation(fields: [chapterId], references: [id], onDelete: Cascade)
-
-    isCompleted Boolean @default(false)
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    @@unique([userId, chapterId])
-    @@index([chapterId])
+  @@unique([userId, chapterId])
+  @@index([chapterId])
 }
 
 model Purchase {
-    id       String @id @default(uuid())
-    userId   String
-    courseId String
-    course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  id        String   @id @default(uuid())
+  userId    String
+  courseId  String
+  price     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
-    price Float
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    @@unique([userId, courseId])
-    @@index([courseId])
+  @@unique([userId, courseId])
+  @@index([courseId])
 }
 
 model StripeCustomer {
-    id               String @id @default(uuid())
-    userId           String
-    stripeCustomerId String
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id               String   @id @default(uuid())
+  userId           String
+  stripeCustomerId String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 }

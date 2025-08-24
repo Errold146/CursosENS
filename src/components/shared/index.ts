@@ -1,2 +1,6 @@
 export * from "./navbar/NavBar"
 export * from "./footer/Footer"
+export * from "./editor-description/EditorDescription"
+export * from "./list-courses/ListCourses"
+export * from "./icon-badge/IconBadge"
+export * from "./progress-course/ProgressCourse"

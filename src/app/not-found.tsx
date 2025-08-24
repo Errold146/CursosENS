@@ -1,8 +1,14 @@
-import Link from "next/link";
-import { Ghost } from "lucide-react"; 
+"use client"
+
+import { useRouter } from "next/navigation";
+import { ArrowLeft, Ghost } from "lucide-react"; 
+
 import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
+
+    const router = useRouter()
+
     return (
         <div className="flex flex-col items-center justify-center h-screen px-6 text-center bg-gray-100 dark:bg-slate-950">
             <div className="flex items-center gap-2 text-slate-400 dark:text-slate-600 mb-4">
@@ -15,8 +21,12 @@ export default function NotFound() {
                 La página que estás buscando no existe o fue movida. Verifica la URL o regresa al inicio.
             </p>
 
-            <Button asChild className="mt-6">
-                <Link href="/">Regresar al Inicio</Link>
+            <Button 
+                onClick={() => router.back()} 
+                className="mt-6 bg-violet-500 hover:bg-violet-400 transition-colors"
+            >
+                <ArrowLeft className=" w-5 h-5" />
+                Regresar
             </Button>
         </div>
     );

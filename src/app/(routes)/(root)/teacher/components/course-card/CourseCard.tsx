@@ -46,7 +46,7 @@ export function CourseCard(props: CourseCardProps) {
                             <div className="flex gap-1 items-center text-sm mt-2">
                                 <DollarSign className=" w-4 h-4 text-violet-400" />
                                 <span className=" text-gray-400">Precio:</span>
-                                <span className=" text-violet-400 font-semibold">{formatCurrency(Number(price)) || 0}</span>
+                                <span className=" text-violet-400 font-semibold">{formatCurrency(price!) || "free"}</span>
                             </div>
 
                             <div className="flex gap-1 items-center text-sm mt-2">

@@ -17,7 +17,9 @@ export function Header() {
 
                 <Dialog>
                     <DialogTrigger asChild>
-                        <Button>
+                        <Button
+                            className=" bg-violet-500 hover:bg-violet-400 transition-colors"
+                        >
                             <Plus />
                             Crear Curso
                         </Button>

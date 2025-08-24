@@ -22,7 +22,11 @@ export default async function CoursePage({params}: { params: Promise<{ courseId:
             userId
         },
         include: {
-            chapters: true
+            chapters: {
+                orderBy: {
+                    position: 'asc'
+                }
+            }
         }
     })
 
