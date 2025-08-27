@@ -28,14 +28,14 @@ export async function POST(
             data: {
                 userId,
                 courseId,
-                price: "free"
+                price: "0"
             }
         })
 
         return new NextResponse("Curso comprado correctamente", { status: 200 });
 
     } catch (error) {
-        console.error("[COURSE_ENROLL]: ", error)
-        return new NextResponse('Internal Server Error', { status: 500 });
+        console.error("[COURSE_ENROLL_ERROR]:", error);
+        return new NextResponse('Error interno al guardar la compra', { status: 500 });
     }
 }

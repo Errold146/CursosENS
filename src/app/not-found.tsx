@@ -23,7 +23,7 @@ export default function NotFound() {
 
             <Button 
                 onClick={() => router.back()} 
-                className="mt-6 bg-violet-500 hover:bg-violet-400 transition-colors"
+                className="mt-6 bg-violet-500 hover:bg-violet-400 transition-colors cursor-pointer"
             >
                 <ArrowLeft className=" w-5 h-5" />
                 Regresar

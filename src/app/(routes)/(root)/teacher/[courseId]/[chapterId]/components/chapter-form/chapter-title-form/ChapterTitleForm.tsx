@@ -123,7 +123,7 @@ export function ChapterTitleForm(props: ChapterTitleFormProps) {
                     <div className="md:col-span-2 flex justify-end">
                         <Button
                             type="submit"
-                            className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 transition-colors"
+                            className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 transition-colors cursor-pointer"
                         >
                             Guardar Cambios
                         </Button>

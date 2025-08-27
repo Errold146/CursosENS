@@ -26,7 +26,7 @@ export function ExploreCourses() {
                     </div>
 
                     <Button
-                        className="bg-violet-500 hover:bg-violet-400 text-white text-md px-6 py-3 w-fit transition-all duration-300 flex items-center gap-2 rounded-lg shadow-sm"
+                        className="bg-violet-500 hover:bg-violet-400 text-white text-md px-6 py-3 w-fit transition-all duration-300 flex items-center gap-2 rounded-lg shadow-sm cursor-pointer"
                         onClick={() => router.push("/courses")}
                     >
                         <TvMinimalPlay className="w-5 h-5" />

@@ -47,7 +47,7 @@ export function ChapterVideoForm(props: ChapterVideoFormProps) {
 
             <div className=" mt-4 p-2 rounded-md border border-gray-300">
                 <Button 
-                    className=" bg-emerald-500 hover:bg-emerald-400 transition-colors"
+                    className=" bg-emerald-500 hover:bg-emerald-400 transition-colors cursor-pointer"
                     onClick={() => setOnEditVideo(true)}
                 >
                     {onEditVideo ? (

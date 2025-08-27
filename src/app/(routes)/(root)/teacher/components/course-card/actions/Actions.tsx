@@ -37,7 +37,7 @@ export function Actions(props: ActionsProps) {
     return (
         <div className="flex flex-col gap-2 items-center w-full lg:max-w-42">
             <Button 
-                className="w-full bg-emerald-500 hover:bg-emerald-400 transition-colors"
+                className="w-full bg-emerald-500 hover:bg-emerald-400 transition-colors cursor-pointer"
                 onClick={onEdit}
             >
                 Editar <Edit className=" w-4 h-4" />
@@ -45,7 +45,7 @@ export function Actions(props: ActionsProps) {
 
             <AlertDialog>
                 <AlertDialogTrigger asChild>
-                    <Button className=" w-full bg-red-500 hover:bg-red-400 transition-colors">
+                    <Button className=" w-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer">
                         Eliminar <Trash className=" w-4 h-4" />
                     </Button>
                 </AlertDialogTrigger>

@@ -22,7 +22,7 @@ export function HeroBlock(props: HeroBlockProps) {
 
     const enrollCourse = async () => {
         setIsLoading(true)
-        if ( !price || price.toLowerCase() === "free" || price === "0" ) {
+        if ( !price || Number(price) < 0.5 ) {
             try {
                 await axios.post(`/api/course/${id}/enroll`)
                 toast.success('Felicidades, has adquirido este curso')
@@ -31,6 +31,17 @@ export function HeroBlock(props: HeroBlockProps) {
             } catch (error) {
                 console.error(error)
                 toast.error('Ocurrio un error, recargue e intetent de nuevo')
+
+            } finally {
+                setIsLoading(false)
+            }
+        } else {
+            try {
+                const res = await axios.post(`/api/course/${id}/checkout`)
+                window.location.assign(res.data.url)
+
+            } catch {
+                toast.error("Error al comprar el curso")
 
             } finally {
                 setIsLoading(false)
@@ -62,7 +73,7 @@ export function HeroBlock(props: HeroBlockProps) {
                 {purchaseCourse ? (
                     <Button 
                         onClick={rediretToCourse}
-                        className=" bg-emerald-500 hover:bg-emerald-400 transition-colors"
+                        className=" bg-emerald-500 hover:bg-emerald-400 transition-colors cursor-pointer"
                         disabled={isLoading}
                     >
                         <Eye className=" w-5 h-5" />
@@ -71,7 +82,7 @@ export function HeroBlock(props: HeroBlockProps) {
                 ): (
                     <Button
                         onClick={enrollCourse}
-                        className=" bg-violet-500 hover:bg-violet-400 transition-colors"
+                        className=" bg-violet-500 hover:bg-violet-400 transition-colors cursor-pointer"
                         disabled={isLoading}
                     >
                         <CreditCard className=" w-5 h-5" />

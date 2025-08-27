@@ -75,7 +75,7 @@ export function FormCreateCourse() {
                 />
                 <Button 
                     type="submit"
-                    className=" bg-emerald-500 hover:bg-emerald-400 transition-colors"
+                    className=" bg-emerald-500 hover:bg-emerald-400 transition-colors cursor-pointer"
                 >
                     <FolderOpenDot className=" w-5 h-5" />
                     Crear Curso

@@ -18,13 +18,15 @@ export function NavBar() {
                     <Input type="search" placeholder="Buscar..." className="w-full border-0" />
                 </div>
 
-                <Button variant="outline" className=" border-gray-300">
+                <Button variant="outline" className=" border-gray-300 cursor-pointer">
                     <BellRing />
                 </Button>
 
                 <SignedOut>
                     <SignInButton>
-                        <Button>
+                        <Button
+                            className=" bg-emerald-500 hover:bg-emerald-400 transition-colors cursor-pointer"
+                        >
                             <LogIn />
                             <span>Iniciar Sesión</span>
                         </Button>
