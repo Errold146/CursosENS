@@ -1,7 +1,7 @@
 import { Award } from "lucide-react";
 import { currentUser } from "@clerk/nextjs/server"
 
-import { CoursesList } from "./components";
+import { CoursesList, Warning } from "./components";
 import { getPurchasedMyCourses } from "@/actions/getPurchasedMyCourses"
 import { getUserProgressByCourses } from "@/actions/getUserProgressByCourses";
 
@@ -32,6 +32,8 @@ export default async function CertificatesPage() {
             </div>
 
             <CoursesList courses={coursesWithProgress} userName={userName} />
+
+            <Warning />
         </div>
     )
 }

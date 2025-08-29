@@ -1,4 +1,4 @@
-import { SuscriptorsChart, TotalRevenue } from "./components"
+import { SuscriptorsChart, TotalRevenue, Payments } from "./components"
 
 export default function AnalyticsPage() {
     return (
@@ -9,7 +9,7 @@ export default function AnalyticsPage() {
                 <TotalRevenue />
             </div>
 
-            <p>Tabla de pagos y usuarios</p>
+            <Payments />
         </div>
     )
 }

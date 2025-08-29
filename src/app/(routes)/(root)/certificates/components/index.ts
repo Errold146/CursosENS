@@ -1,3 +1,4 @@
+export * from './warning/Warning'
 export * from './certificate/Certificate'
 export * from './courses-list/CoursesList'
 export * from './download-certificate/DownloadCertificate'
