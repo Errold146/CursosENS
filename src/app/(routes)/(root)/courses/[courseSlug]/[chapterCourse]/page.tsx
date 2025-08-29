@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 
 export default async function ChapterCoursePage(
-    {params}: {params: { courseSlug: string, chapterCourse: string }}
+    {params}: {params: Promise<{ courseSlug: string, chapterCourse: string }>}
 ) {
 
     const { courseSlug, chapterCourse } = await params

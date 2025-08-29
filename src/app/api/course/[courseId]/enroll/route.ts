@@ -5,7 +5,7 @@ import prisma from "@/lib/prisma";
 
 export async function POST(
     req: Request,
-    { params }: { params: { courseId: string } }
+    { params }: { params: Promise<{ courseId: string }> }
 ) {
     const { userId } = await auth()
     const { courseId } = await params

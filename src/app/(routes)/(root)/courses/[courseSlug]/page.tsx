@@ -7,7 +7,7 @@ import { getPurchaseCourseById } from "@/actions/getPurchaseCourseById";
 import { BreadCrumbCourse, CourseContent, HeroBlock } from "./components";
 
 export async function generateMetadata(
-    { params }: { params: { courseSlug: string } }
+    { params }: { params: Promise<{ courseSlug: string }> }
 ): Promise<Metadata> {
     const { courseSlug } = await params;
     return {
@@ -17,7 +17,7 @@ export async function generateMetadata(
 }
 
 export default async function CourseSlugPage(
-    { params }: { params: { courseSlug: string } }
+    { params }: { params: Promise<{ courseSlug: string }> }
 ) {
 
     const { courseSlug } = await params
