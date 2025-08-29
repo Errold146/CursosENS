@@ -1,0 +1,12 @@
+{
+  "buildCommand": "yarn build",
+  "installCommand": "yarn install",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "functions": {
+    "api/**.ts": {
+      "memory": 512,
+      "maxDuration": 10
+    }
+  }
+}
